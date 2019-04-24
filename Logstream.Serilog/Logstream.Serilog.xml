@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Logstream.Serilog</name>
+    </assembly>
+    <members>
+        <member name="T:Logstream.BrowserConsoleSink">
+            <summary>
+            Class BrowserConsoleSink.
+            </summary>
+            <seealso cref="T:Serilog.Core.ILogEventSink" />
+            <seealso cref="T:System.IDisposable" />
+        </member>
+        <member name="P:Logstream.BrowserConsoleSink.Initialized">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Logstream.BrowserConsoleSink"/> is initialized.
+            </summary>
+            <value><c>true</c> if initialized; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Logstream.BrowserConsoleSink.Active">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Logstream.BrowserConsoleSink"/> is active.
+            </summary>
+            <value><c>true</c> if active; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Logstream.BrowserConsoleSink.Host">
+            <summary>
+            Gets or sets the host.
+            </summary>
+            <value>The host.</value>
+        </member>
+        <member name="P:Logstream.BrowserConsoleSink.Port">
+            <summary>
+            Gets or sets the port.
+            </summary>
+            <value>The port.</value>
+        </member>
+        <member name="P:Logstream.BrowserConsoleSink.Certificate">
+            <summary>
+            Gets or sets the certificate.
+            </summary>
+            <value>The certificate.</value>
+        </member>
+        <member name="P:Logstream.BrowserConsoleSink.ReplayBufferSize">
+            <summary>
+            Gets or sets the size of the replay buffer.
+            </summary>
+            <value>The size of the replay buffer.</value>
+        </member>
+        <member name="P:Logstream.BrowserConsoleSink.LogProperties">
+            <summary>
+            Gets or sets a value indicating whether [log properties].
+            </summary>
+            <value><c>true</c> if [log properties]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Logstream.BrowserConsoleSink.Formatter">
+            <summary>
+            Gets or sets the formatter.
+            </summary>
+            <value>The formatter.</value>
+        </member>
+        <member name="M:Logstream.BrowserConsoleSink.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Logstream.BrowserConsoleSink"/> class.
+            </summary>
+        </member>
+        <member name="M:Logstream.BrowserConsoleSink.#ctor(Logstream.ChannelFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Logstream.BrowserConsoleSink"/> class.
+            </summary>
+            <param name="channelFactory">The channel factory.</param>
+        </member>
+        <member name="M:Logstream.BrowserConsoleSink.Initialize">
+            <summary>
+            Initializes this instance.
+            </summary>
+        </member>
+        <member name="M:Logstream.BrowserConsoleSink.Emit(Serilog.Events.LogEvent)">
+            <summary>
+            Emit the provided log event to the sink.
+            </summary>
+            <param name="logEvent">The log event to write.</param>
+        </member>
+        <member name="M:Logstream.BrowserConsoleSink.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="T:Logstream.LogstreamExtensions">
+            <summary>
+            Class LogstreamExtensions.
+            </summary>
+        </member>
+        <member name="F:Logstream.LogstreamExtensions.DefaultOutputTemplate">
+            <summary>
+            The default output template
+            </summary>
+        </member>
+        <member name="M:Logstream.LogstreamExtensions.BrowserConsole(Serilog.Configuration.LoggerSinkConfiguration,Serilog.Events.LogEventLevel,System.Boolean,System.Int32,System.Int32,System.String,System.IFormatProvider,System.Boolean)">
+            <summary>
+            Browsers the console.
+            </summary>
+            <param name="sinkConfiguration">The sink configuration.</param>
+            <param name="restrictedToMinimumLevel">The restricted to minimum level.</param>
+            <param name="active">if set to <c>true</c> [active].</param>
+            <param name="port">The port.</param>
+            <param name="replayBufferSize">Size of the replay buffer.</param>
+            <param name="outputTemplate">The output template.</param>
+            <param name="formatProvider">The format provider.</param>
+            <param name="logProperties">if set to <c>true</c> [log properties].</param>
+            <returns>LoggerConfiguration.</returns>
+        </member>
+    </members>
+</doc>

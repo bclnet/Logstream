@@ -1,0 +1,291 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Logstream</name>
+    </assembly>
+    <members>
+        <member name="T:Logstream.ChannelFactory">
+            <summary>
+            Class ChannelFactory.
+            </summary>
+        </member>
+        <member name="M:Logstream.ChannelFactory.Create(System.String,System.Int32,System.Security.Cryptography.X509Certificates.X509Certificate,System.Int32)">
+            <summary>
+            Creates the specified host.
+            </summary>
+            <param name="host">The host.</param>
+            <param name="port">The port.</param>
+            <param name="certificate">The certificate.</param>
+            <param name="replayBufferSize">Size of the replay buffer.</param>
+            <returns>IEventChannel.</returns>
+        </member>
+        <member name="T:Logstream.Server.HttpContext">
+            <summary>
+            Class HttpContext.
+            </summary>
+        </member>
+        <member name="M:Logstream.Server.HttpContext.#ctor(Logstream.Server.HttpRequest,Logstream.Server.HttpResponseChannel,System.Threading.CancellationToken)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Logstream.Server.HttpContext"/> class.
+            </summary>
+            <param name="httpRequest">The HTTP request.</param>
+            <param name="responseChannel">The response channel.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="P:Logstream.Server.HttpContext.HttpRequest">
+            <summary>
+            Gets the HTTP request.
+            </summary>
+            <value>The HTTP request.</value>
+        </member>
+        <member name="P:Logstream.Server.HttpContext.ResponseChannel">
+            <summary>
+            Gets the response channel.
+            </summary>
+            <value>The response channel.</value>
+        </member>
+        <member name="P:Logstream.Server.HttpContext.Token">
+            <summary>
+            Gets the token.
+            </summary>
+            <value>The token.</value>
+        </member>
+        <member name="T:Logstream.Server.HttpRequest">
+            <summary>
+            Class HttpRequest.
+            </summary>
+        </member>
+        <member name="M:Logstream.Server.HttpRequest.#ctor(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Logstream.Server.HttpRequest"/> class.
+            </summary>
+            <param name="uri">The URI.</param>
+            <param name="method">The method.</param>
+            <param name="headers">The headers.</param>
+        </member>
+        <member name="P:Logstream.Server.HttpRequest.Uri">
+            <summary>
+            Gets the URI.
+            </summary>
+            <value>The URI.</value>
+        </member>
+        <member name="P:Logstream.Server.HttpRequest.Method">
+            <summary>
+            Gets the method.
+            </summary>
+            <value>The method.</value>
+        </member>
+        <member name="P:Logstream.Server.HttpRequest.Headers">
+            <summary>
+            Gets the headers.
+            </summary>
+            <value>The headers.</value>
+        </member>
+        <member name="M:Logstream.Server.HttpRequest.Parse(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Parses the specified lines.
+            </summary>
+            <param name="lines">The lines.</param>
+            <returns>HttpRequest.</returns>
+        </member>
+        <member name="T:Logstream.Server.HttpResponse">
+            <summary>
+            Class HttpResponse.
+            </summary>
+        </member>
+        <member name="M:Logstream.Server.HttpResponse.#ctor(System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Logstream.Server.HttpResponse"/> class.
+            </summary>
+            <param name="statusCode">The status code.</param>
+            <param name="statusDescription">The status description.</param>
+        </member>
+        <member name="P:Logstream.Server.HttpResponse.Headers">
+            <summary>
+            Gets the headers.
+            </summary>
+            <value>The headers.</value>
+        </member>
+        <member name="P:Logstream.Server.HttpResponse.Content">
+            <summary>
+            Gets or sets the content.
+            </summary>
+            <value>The content.</value>
+        </member>
+        <member name="M:Logstream.Server.HttpResponse.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>A <see cref="T:System.String" /> that represents this instance.</returns>
+        </member>
+        <member name="T:Logstream.Server.HttpResponseChannel">
+            <summary>
+            Class HttpResponseChannel.
+            </summary>
+            <seealso cref="T:Logstream.Server.IEventChannel" />
+        </member>
+        <member name="M:Logstream.Server.HttpResponseChannel.#ctor(System.Net.Sockets.TcpClient,System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Logstream.Server.HttpResponseChannel"/> class.
+            </summary>
+            <param name="tcpClient">The TCP client.</param>
+            <param name="stream">The stream.</param>
+        </member>
+        <member name="M:Logstream.Server.HttpResponseChannel.Send(Logstream.Server.ServerSentEvent,System.Threading.CancellationToken)">
+            <summary>
+            Sends the specified sse.
+            </summary>
+            <param name="sse">The sse.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Logstream.Server.HttpResponseChannel.Send(System.Object,System.Threading.CancellationToken)">
+            <summary>
+            Sends the specified object.
+            </summary>
+            <param name="obj">The object.</param>
+            <param name="token">The token.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Logstream.Server.HttpResponseChannel.Close">
+            <summary>
+            Closes this instance.
+            </summary>
+        </member>
+        <member name="M:Logstream.Server.HttpResponseChannel.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="T:Logstream.Server.HttpServer">
+            <summary>
+            Class HttpServer.
+            </summary>
+            <seealso cref="T:System.IDisposable" />
+        </member>
+        <member name="M:Logstream.Server.HttpServer.#ctor(System.String,System.Int32,System.Action{Logstream.Server.HttpContext})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Logstream.Server.HttpServer"/> class.
+            </summary>
+            <param name="host">The host.</param>
+            <param name="port">The port.</param>
+            <param name="handler">The handler.</param>
+        </member>
+        <member name="M:Logstream.Server.HttpServer.Run(System.Security.Cryptography.X509Certificates.X509Certificate,System.Nullable{System.TimeSpan})">
+            <summary>
+            Runs the specified certificate.
+            </summary>
+            <param name="certificate">The certificate.</param>
+            <param name="delay">The delay.</param>
+            <exception cref="T:System.InvalidOperationException">Cannot run on a disposed server</exception>
+        </member>
+        <member name="M:Logstream.Server.HttpServer.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Logstream.Server.HttpServer.FindLocalIp">
+            <summary>
+            Finds the local ip.
+            </summary>
+            <returns>System.String.</returns>
+            <exception cref="T:System.Exception">No network adapters with an IPv4 address in the system!</exception>
+        </member>
+        <member name="M:Logstream.Server.HttpServer.FindCertificate(System.Object,System.Security.Cryptography.X509Certificates.X509FindType,System.String,System.Security.Cryptography.X509Certificates.StoreLocation)">
+            <summary>
+            Finds the certificate.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="findType">Type of the find.</param>
+            <param name="storeName">Name of the store.</param>
+            <param name="location">The location.</param>
+            <returns>X509Certificate2.</returns>
+        </member>
+        <member name="M:Logstream.Server.HttpServer.FindFreeTcpPort">
+            <summary>
+            Finds the free TCP port.
+            </summary>
+            <returns>System.Int32.</returns>
+        </member>
+        <member name="T:Logstream.Server.IEventChannel">
+            <summary>
+            Interface IEventChannel
+            </summary>
+            <seealso cref="T:System.IDisposable" />
+        </member>
+        <member name="M:Logstream.Server.IEventChannel.Send(Logstream.Server.ServerSentEvent,System.Threading.CancellationToken)">
+            <summary>
+            Sends the specified message.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="T:Logstream.Server.LineParser">
+            <summary>
+            Class LineParser.
+            </summary>
+        </member>
+        <member name="M:Logstream.Server.LineParser.Parse(System.IO.Stream,System.Threading.CancellationToken)">
+            <summary>
+            Parses the specified input.
+            </summary>
+            <param name="input">The input.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Task&lt;IEnumerable&lt;System.String&gt;&gt;.</returns>
+        </member>
+        <member name="T:Logstream.Server.MulticastChannel">
+            <summary>
+            Class MulticastChannel.
+            </summary>
+            <seealso cref="T:Logstream.Server.IEventChannel" />
+        </member>
+        <member name="M:Logstream.Server.MulticastChannel.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Logstream.Server.MulticastChannel"/> class.
+            </summary>
+            <param name="replayBufferSize">Size of the replay buffer.</param>
+        </member>
+        <member name="M:Logstream.Server.MulticastChannel.AddChannel(Logstream.Server.IEventChannel,System.Threading.CancellationToken)">
+            <summary>
+            Adds the channel.
+            </summary>
+            <param name="channel">The channel.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Logstream.Server.MulticastChannel.Send(Logstream.Server.ServerSentEvent,System.Threading.CancellationToken)">
+            <summary>
+            Sends the specified message.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Logstream.Server.MulticastChannel.AttachServer(Logstream.Server.HttpServer)">
+            <summary>
+            Attaches the server.
+            </summary>
+            <param name="httpServer">The HTTP server.</param>
+        </member>
+        <member name="M:Logstream.Server.MulticastChannel.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="T:Logstream.Server.ServerSentEvent">
+            <summary>
+            Class ServerSentEvent.
+            </summary>
+        </member>
+        <member name="M:Logstream.Server.ServerSentEvent.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Logstream.Server.ServerSentEvent"/> class.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="data">The data.</param>
+        </member>
+        <member name="M:Logstream.Server.ServerSentEvent.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>A <see cref="T:System.String" /> that represents this instance.</returns>
+        </member>
+    </members>
+</doc>

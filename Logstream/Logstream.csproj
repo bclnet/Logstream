@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <DocumentationFile>C:\_GITHUB\bclnet\Logstream\Logstream\Logstream.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Default.htm" />
+    <None Remove="Logstream.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Logstream.js" />
+    <EmbeddedResource Include="Default.htm" />
+  </ItemGroup>
+
+</Project>
