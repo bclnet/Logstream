@@ -1,4 +1,4 @@
-﻿using Abbotware.Interop.NUnit;
+﻿//using Abbotware.Interop.NUnit;
 using NFluent;
 using NUnit.Framework;
 using System.IO;
