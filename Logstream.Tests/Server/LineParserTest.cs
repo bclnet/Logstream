@@ -1,5 +1,4 @@
-﻿//using Abbotware.Interop.NUnit;
-using NFluent;
+﻿using NFluent;
 using NUnit.Framework;
 using System.IO;
 using System.Linq;

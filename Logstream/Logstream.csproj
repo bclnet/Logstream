@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Contoso</Authors>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Logging extension which streams logs to browser utilizing tiny in-process server</Description>
+    <RepositoryUrl>https://github.com/bclnet/Logstream</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
